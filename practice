@@ -1,0 +1,60 @@
+//find the largest element in a queue using linked list
+// #include<stdio.h>
+// #include<stdlib.h>
+// struct Node{
+//     int data;
+//     struct Node *next;
+// };
+// struct Node *front=NULL;
+// struct Node *rear=NULL;
+// void enqueue(int value){
+//     struct Node *newNode=(struct Node*)malloc(sizeof(struct Node));
+//     newNode->data=value;
+//     newNode->next=NULL;
+//     if(front==NULL && rear==NULL){
+//         front=rear=newNode;
+//     }
+//     else{
+//         rear->next=newNode;
+//         rear=newNode;
+//     }
+// }
+// void dequeue(){
+//     struct Node *temp=front;
+//     if(front==NULL){
+//         printf("Queue is empty\n");
+//         return;
+//     }
+//     front=front->next;
+//     free(temp);
+// }
+// void display(){
+
+
+// }
+// int main(){
+//     int n,i,value;
+//     printf("Enter the number of elements in the queue:\n");
+//     scanf("%d",&n);
+//     for (i=0;i<n;i++)
+// }
+#include <iostream>
+#include <utility>
+class Logger{
+public:
+Logger() = default;
+Logger(const std::string& file) : file_(file) {}
+Logger(const Logger&) = delete;
+Logger& operator=(const Logger&) = default;
+Logger(Logger&&) = default;
+private:
+std::string file_;
+};
+int main() {
+Logger log1;
+Logger log2("system.log"); //LINE-1
+Logger log3(log2); //LINE-2
+Logger log4(std::move(log2)); //LINE-3
+log1 = std::move(log2); //LINE-4
+return 0;
+}
